@@ -10,8 +10,10 @@ from langchain_core.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
 from prompt import system_prompt
 import os
+from flask_cors import CORS
 
-app = Flask(__name__, template_folder="../frontend")
+app = Flask(__name__)
+CORS(app)
 # Load API keys
 load_dotenv()
 PINECONE_API_KEY = os.environ.get('PINECONE_API_KEY')
@@ -54,11 +56,7 @@ rag_chain = create_retrieval_chain(retriever, question_answer_chain)
 
 # Flask Routes
 
-@app.route("/")
-def index():
-    return render_template("chat.html")
-
-@app.route("/get", methods=["POST"])
+@app.route("/chat", methods=["POST"])
 def chat():
     user_input = request.form.get("msg")
     if not user_input:
