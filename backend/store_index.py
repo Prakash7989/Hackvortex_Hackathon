@@ -1,6 +1,6 @@
 # store_index.py
 
-from Hackvortex_Hackathon.backend.helper import load_pdf_file, downloadHuggingFaceEmbeddings, text_split
+from helper import load_pdf_file, downloadHuggingFaceEmbeddings, text_split
 from pinecone import Pinecone, ServerlessSpec
 from langchain_pinecone import PineconeVectorStore
 from dotenv import load_dotenv

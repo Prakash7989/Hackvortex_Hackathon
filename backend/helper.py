@@ -5,7 +5,7 @@ from langchain.text_splitter import Language, RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_core.documents import Document  # Explicitly import Document for clarity/type hinting
 
-
+#Load pdf from directory
 def load_pdf_file(data: str) -> list[Document]:
     """
     Loads PDF documents from a directory using LangChain's DirectoryLoader.
@@ -31,16 +31,16 @@ def load_pdf_file(data: str) -> list[Document]:
         print(f"Error loading documents: {e}")
         return []
 
-
+#Embeddings
 def downloadHuggingFaceEmbeddings():
     
     model_name = "BAAI/bge-large-en-v1.5"
     return HuggingFaceEmbeddings(model_name=model_name)
 
-
+#Chunks
 def text_split(extracted_data):
     text_splitter = RecursiveCharacterTextSplitter.from_language(
-        language=Language.PYTHON,  # Change to Language.JAVASCRIPT, Language.JAVA, etc. if needed
+        language=Language.PYTHON, 
         chunk_size=500,
         chunk_overlap=20
     )
