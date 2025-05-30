@@ -1,6 +1,6 @@
 # app.py
 
-from flask import Flask, render_template, jsonify, request
+# from flask import Flask, render_template, jsonify, request
 from Hackvortex_Hackathon.backend.helper import downloadHuggingFaceEmbeddings # Only need embeddings for queries
 from langchain_pinecone import PineconeVectorStore
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 from Hackvortex_Hackathon.backend.prompt import *        # Assuming prompt.py contains system_prompt
 import os
 
-app = Flask(__name__)
+# app = Flask(__name__)
 
 # Attain API Keys from .env and set them in environment variables
 load_dotenv()
