@@ -15,14 +15,3 @@ A full-stack AI chatbot for answering questions based on custom PDFs related to 
 
 ---
 
-## 📁 Project Structure
-
-├── app.py # Flask backend server
-├── helper.py # Helper functions for loading, splitting, and embedding
-├── store_index.py # Script to load PDFs and populate Pinecone index
-├── prompt.py # System prompt for Gemini
-├── Data/ # Folder containing input PDFs
-├── .env # API keys and secrets
-├── frontend/ # React + Tailwind CSS frontend 
-
-
