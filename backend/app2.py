@@ -1,6 +1,9 @@
 # app.py
 
 from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS
+import os
+
 from helper import downloadHuggingFaceEmbeddings # Assuming this is defined elsewhere
 from langchain_pinecone import PineconeVectorStore
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -9,8 +12,6 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
 from prompt import system_prompt # Assuming this is defined elsewhere
-import os
-from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
@@ -52,7 +53,7 @@ except Exception as e:
 retriever = docsearch.as_retriever(search_type='similarity', search_kwargs={'k': 3})
 
 # LLM
-llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0.5)
+llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0.5)
 
 # Prompt and Chain
 # Ensure system_prompt is defined in prompt.py

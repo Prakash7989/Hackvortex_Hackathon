@@ -1,7 +1,7 @@
 # helper.py
 
 from langchain_community.document_loaders import PDFMinerLoader, DirectoryLoader
-from langchain.text_splitter import Language, RecursiveCharacterTextSplitter
+from langchain_text_splitters import Language, RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_core.documents import Document  # Explicitly import Document for clarity/type hinting
 
@@ -33,7 +33,6 @@ def load_pdf_file(data: str) -> list[Document]:
 
 #Embeddings
 def downloadHuggingFaceEmbeddings():
-    
     model_name = "BAAI/bge-large-en-v1.5"
     return HuggingFaceEmbeddings(model_name=model_name)
 

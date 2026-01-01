@@ -425,8 +425,18 @@ export default function App() {
           </div>
         );
       }
-      // This is regular text
-      return part ? <div key={`part-${uniquePartKey}`} className="whitespace-pre-wrap leading-relaxed">{part}</div> : null; // Use unique key for element
+      // This is regular text - now handle bold text formatting
+      const processedText = part
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>');
+      
+      return part ? (
+        <div 
+          key={`part-${uniquePartKey}`} 
+          className="whitespace-pre-wrap leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: processedText }}
+        />
+      ) : null;
     });
   };
 
