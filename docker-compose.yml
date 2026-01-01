@@ -1,32 +1,18 @@
-version: "3.8"
-
 services:
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: saivishwas11/ds-bot-backend:latest
     container_name: data-science-bot-backend
     ports:
       - "8080:8080"
     env_file:
       - .env
     restart: unless-stopped
-    networks:
-      - app-network
 
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    image: saivishwas11/ds-bot-frontend:latest
     container_name: data-science-bot-frontend
     ports:
       - "80:80"
     depends_on:
       - backend
     restart: unless-stopped
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge
