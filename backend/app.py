@@ -12,7 +12,7 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
 from prompt import system_prompt # Assuming this is defined elsewhere
-
+ 
 app = Flask(__name__)
 CORS(app)
 # Load API keys
